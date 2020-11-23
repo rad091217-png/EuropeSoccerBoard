@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
-  root "home#home"
-  get "home/home"
+  root "home#top"
   get "home/help"
   get "home/liga"
   get "home/bundesu"
@@ -10,4 +9,5 @@ Rails.application.routes.draw do
   get "home/premera"
   get "home/euro"
   get "home/nations_league"
+  get "users/signup"
 end

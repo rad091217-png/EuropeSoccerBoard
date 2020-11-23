@@ -1,8 +1,8 @@
 require "test_helper"
 
 class HomeControllerTest < ActionDispatch::IntegrationTest
-  test "should get home" do
-    get home_home_url
+  test "should get top" do
+    get home_top_url
     assert_response :success
     assert_select "title", "ヨーロッパサッカー掲示板"
   end
