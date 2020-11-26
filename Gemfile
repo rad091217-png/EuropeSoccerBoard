@@ -17,6 +17,7 @@ gem "turbolinks", "~> 5"
 gem "jbuilder", "~> 2.7"
 gem "bootstrap-sass", "3.4.1"
 gem "bcrypt", "3.1.13"
+gem "rails-i18n"
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
