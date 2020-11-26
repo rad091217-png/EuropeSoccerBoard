@@ -1,11 +1,13 @@
+@import "common.scss";
+@import "mixin.scss";
+
 header {
     background-color: black;
     height: 55px;
-    width: 1530px;
+    width: 1540px;
     overflow: hidden;
     .link {
         color: white;
-        text-decoration: none;
     }
     .header_title {
         float: left;
@@ -13,11 +15,14 @@ header {
         padding-top: 8px;
         :hover {
             color: rgb(193, 193, 241);
+            text-decoration: none;
         }
     }
     li {
         list-style: none;
         float: right;
+        font-size: 17px;
+        padding-bottom: 10px;
         padding-right: 10px;
         :hover {
             color: rgb(193, 193, 241);
@@ -28,12 +33,12 @@ header {
 
 footer {
     background-color: black;
-    height: 55px;
+    width: 1540px;
     .link {
         color: white;
         text-decoration: none;
     }
-    .footer_title {
+     footer_title {
         padding-top: 8px;
         font-size: 25px;
         :hover {

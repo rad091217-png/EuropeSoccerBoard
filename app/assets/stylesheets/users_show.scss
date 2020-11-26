@@ -1,0 +1,22 @@
+@import "common.scss";
+
+.user_name{
+    font-size: 20px;
+    :hover {
+        color: rgb(193, 193, 241);
+        text-decoration: none;
+    }
+}
+
+.follow_info{
+    overflow: hidden;
+    :hover {
+        color: rgb(193, 193, 241);
+        text-decoration: none;
+    }
+    .my_follower, .follow{
+        margin-right: 10px;
+        list-style: none;
+        float: right;
+    }
+}

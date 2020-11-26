@@ -1,0 +1,29 @@
+@import "common.scss";
+@import "mixin.scss";
+
+.signup{
+    text-align: center;
+}
+
+input, textarea, select, .uneditable-input {
+    border: 1px solid #bbb;
+    width: 100%;
+    margin-bottom: 15px;
+    @include box_sizing;
+  }
+  
+  input {
+    height: auto important;
+  }
+
+  footer{
+      margin-top: 20px;
+      height: 55px;
+      :hover {
+        color: rgb(193, 193, 241);
+        text-decoration: none;
+    }
+  }
+
+
+

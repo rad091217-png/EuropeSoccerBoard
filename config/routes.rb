@@ -10,4 +10,5 @@ Rails.application.routes.draw do
   get "home/euro"
   get "home/nations_league"
   get "users/signup"
+  resources :users
 end
