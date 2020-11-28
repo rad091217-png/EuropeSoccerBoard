@@ -8,16 +8,16 @@
                 <%= form_with(model: @user, local: true) do |f| %>
                 <%= render "shared/error_messages" %>
 
-                <%= f.label :名前 %>
+                <%= f.label :名前, class: "signup_name" %>
                 <%= f.text_field :name, class: "form-control" %>
 
-                <%= f.label :メールアドレス %>
+                <%= f.label :メールアドレス, class: "signup_address" %>
                 <%= f.email_field :email, class: "form-control" %>
 
-                <%= f.label :パスワード %>
+                <%= f.label :パスワード, class: "signup_password" %>
                 <%= f.password_field :password, class: "form-control" %>
 
-                <%= f.label :password_confirmation, "入力したパスワードの確認" %>
+                <%= f.label :password_confirmation, "入力したパスワードの確認", class: "password_confirmation" %>
                 <%= f.password_field :password_confirmation, class: "form-control" %>
                 <%= f.submit "アカウント作成", class: "btn btn-primary" %>
             </div>

@@ -1,3 +1,27 @@
-// Place all the styles related to the Sessions controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
+body{
+    background-image: url("soccer_image.png");
+    background-size: cover;
+    .row{
+        height: 490px;
+    }
+    .login{
+        margin-top: 70px;
+        text-align: center;
+    }
+    .login_address{
+        margin-top: 30px;
+    }
+    .login_password{
+        margin-top: 30px;
+    }
+    .form-control{
+        margin-top: 5px;
+    }
+
+    .btn-primary{
+        margin-top: 40px;
+    }
+    .yet{
+        margin-top: 5px;
+    }
+}
