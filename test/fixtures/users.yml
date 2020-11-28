@@ -1,1 +1,4 @@
-# 空にする
+kehlar:
+  name: Kehlar 
+  email: kehlar@kehlar.com
+  password_digest: <%= User.digest("password")

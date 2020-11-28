@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get "sessions/new"
   root "home#top"
   get "home/help"
   get "home/liga"
@@ -10,5 +11,8 @@ Rails.application.routes.draw do
   get "home/euro"
   get "home/nations_league"
   get "users/signup"
+  get "sessions/new"
+  post "sessions/create"
+  delete "sessions/destroy"
   resources :users
 end

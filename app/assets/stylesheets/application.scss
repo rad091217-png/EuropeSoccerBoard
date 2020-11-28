@@ -1,8 +1,9 @@
 @import "common.scss";
 @import "mixin.scss";
-
+@import "font-awesome-sprockets";
+@import "font-awesome";
 header {
-    background-color: black;
+    background-color: gray;
     height: 55px;
     width: 1540px;
     overflow: hidden;
@@ -19,26 +20,27 @@ header {
         }
     }
     li {
+        color: white;
         list-style: none;
         float: right;
         font-size: 17px;
         padding-bottom: 10px;
         padding-right: 10px;
-        :hover {
-            color: rgb(193, 193, 241);
-            text-decoration: none;
-        }
+            :hover {
+                color: rgb(193, 193, 241);
+                text-decoration: none;
+            }
+            }
     }
-}
 
 footer {
-    background-color: black;
+    background-color: gray;
     width: 1540px;
     .link {
         color: white;
         text-decoration: none;
     }
-     footer_title {
+    .footer_title {
         padding-top: 8px;
         font-size: 25px;
         :hover {

@@ -1,29 +1,37 @@
 @import "common.scss";
 @import "mixin.scss";
 
-.signup{
+body {
+  background-image: url("soccer_image.png");
+  background-size: cover;
+  .signup {
     text-align: center;
-}
+    margin-bottom: 20px;
+  }
+  .insert_information {
+    background-color: rgb(202, 226, 226);
+    opacity: 0.8;
+  }
 
-input, textarea, select, .uneditable-input {
-    border: 1px solid #bbb;
+  input,
+  textarea,
+  select,
+  .uneditable-input {
+    border: 1px solid black;
     width: 100%;
     margin-bottom: 15px;
     @include box_sizing;
   }
-  
+
   input {
     height: auto important;
   }
 
-  footer{
-      margin-top: 20px;
-      height: 55px;
-      :hover {
-        color: rgb(193, 193, 241);
-        text-decoration: none;
-    }
+  .btn-primary {
+    margin-top: 30px;
   }
 
-
-
+  footer {
+    margin-top: 120px;
+  }
+}

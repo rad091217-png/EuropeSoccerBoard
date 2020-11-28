@@ -3,11 +3,18 @@
         <%= link_to("ヨーロッパサッカー掲示板", "/", {class: "link"}) %>
     </div>
     <nav>
-        <ul class="navigation">
-            <li><%= link_to("要望、お問い合わせ", "home/help", {class: "link"}) %></li>
+        <ul>
+            <% if logged_in? %>
+            <li><%= link_to "ログアウト", "sessions/destroy", {method: :delete} %></li>
+            <li><%= link_to "ユーザー", "", {class: "link"} %></li>
+            <li><%= link_to "settings", "", {class: "link"} %></li>
+            <li><%= link_to "プロフィール", "", {class: "link"} %></li>
+            <% else %>
             <li><%= link_to("新規登録", "users/signup", {class: "link"}) %></li>
-            <li><%= link_to("ログイン", "", {class: "link"}) %></li>
+            <li><%= link_to("ログイン", "sessions/new", {class: "link"}) %></li>
             <li><%= link_to("かんたんログイン", "", {class: "link"}) %></li>
+            <li><%= link_to("要望、お問い合わせ", "home/help", {class: "link"}) %></li>
+            <% end %>
         </ul>
     </nav>
 </header>
