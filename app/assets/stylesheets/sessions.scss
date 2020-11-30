@@ -1,27 +1,31 @@
-body{
+body {
     background-image: url("soccer_image.png");
     background-size: cover;
-    .row{
+    .row {
         height: 490px;
     }
-    .login{
+    .login {
         margin-top: 70px;
         text-align: center;
     }
-    .login_address{
+    .login_address {
         margin-top: 30px;
     }
-    .login_password{
+    .login_password {
+        margin-top: 20px;
+    }
+    .form-control {
+        margin-top: 5px;
+        margin-bottom: 20px;
+    }
+    .remember {
+        margin-top: 50px;
+    }
+    .btn-primary {
         margin-top: 30px;
+        margin-right: 600px;
     }
-    .form-control{
-        margin-top: 5px;
-    }
-
-    .btn-primary{
-        margin-top: 40px;
-    }
-    .yet{
-        margin-top: 5px;
-    }
+}
+.yet {
+    margin-top: 30px;
 }
