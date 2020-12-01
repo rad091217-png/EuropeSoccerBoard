@@ -4,7 +4,7 @@ class SiteLayoutTest < ActionDispatch::IntegrationTest
   test "layout links" do
     get root
     assert_template "home/top"
-    assert_select "a[href=?]", root
+    assert_select "a[href=?]", root_path
     assert_select "a[href=?]", help
     assert_select "a[href=?]", liga
     assert_select "a[href=?]", bundesu

@@ -19,6 +19,8 @@ gem "bootstrap-sass", "3.4.1"
 gem "bcrypt", "3.1.13"
 gem "rails-i18n"
 gem "font-awesome-sass"
+gem "will_paginate", "3.1.8"
+gem "bootstrap-will_paginate", "1.0.0"
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
@@ -34,6 +36,7 @@ end
 group :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
   gem "web-console", ">= 3.3.0"
+  gem "faker", "2.1.2"
 end
 
 group :test do

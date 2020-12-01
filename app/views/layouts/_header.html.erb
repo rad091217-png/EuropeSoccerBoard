@@ -5,14 +5,14 @@
     <nav>
         <ul>
             <% if logged_in? %>
-            <li><%= link_to "ログアウト", "logout", {method: :delete} %></li>
-            <li><%= link_to "ユーザー", "", {class: "link"} %></li>
-            <li><%= link_to "settings", "", {class: "link"} %></li>
+            <li><%= link_to "ログアウト", "/logout", {method: :delete} %></li>
+            <li><%= link_to "全てのユーザー", "/users", {class: "link"} %></li>
+             <li><%= link_to "メールアドレス、パスワードの変更", edit_user_path(current_user), {class: "link"} %></li>
             <li><%= link_to "プロフィール", "", {class: "link"} %></li>
             <li><%= link_to("要望、お問い合わせ", "/help", {class: "link"}) %></li>
             <% else %>
             <li><%= link_to("新規登録", "/signup", {class: "link"}) %></li>
-            <li><%= link_to("ログイン", "login", {class: "link"}) %></li>
+            <li><%= link_to("ログイン", "/login", {class: "link"}) %></li>
             <li><%= link_to("かんたんログイン", "", {class: "link"}) %></li>
             <% end %>
         </ul>
