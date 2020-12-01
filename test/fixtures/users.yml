@@ -1,5 +1,5 @@
-Example User:
-  name: Example User
+Example:
+  name: Example
   email: k@example.c
   password_digest: <%= User.digest("password") %>
   admin: true
