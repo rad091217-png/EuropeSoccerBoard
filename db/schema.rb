@@ -10,7 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_01_131028) do
+ActiveRecord::Schema.define(version: 2020_12_18_130916) do
+
+  create_table "laliga_posts", force: :cascade do |t|
+    t.string "name"
+    t.text "text"
+    t.string "image"
+    t.datetime "created_at", precision: 6
+    t.datetime "updated_at", precision: 6
+  end
+
+  create_table "posts", force: :cascade do |t|
+    t.string "name"
+    t.text "text"
+    t.string "image"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "name"
@@ -20,6 +36,9 @@ ActiveRecord::Schema.define(version: 2020_12_01_131028) do
     t.string "password_digest"
     t.string "remember_digest"
     t.boolean "admin", default: false
+    t.string "activation_digest"
+    t.boolean "activated", default: false
+    t.datetime "activated_at"
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 

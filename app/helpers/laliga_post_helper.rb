@@ -1,0 +1,2 @@
+module LaligaPostHelper
+end

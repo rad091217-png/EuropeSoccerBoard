@@ -1,0 +1,28 @@
+<title>ヨーロッパサッカー掲示板</title>
+<%= stylesheet_link_tag 'column', media: 'all', 'data-turbolinks-track': 'reload' %>
+<table>
+    <tr class="laliga">
+        <td><%= link_to("ラ・リーガ", "/laliga_index", {class: "tbl"}) %></td>
+    </tr>
+    <tr class="bundesu">
+        <td><%= link_to("ブンデスリーガ", "/bundesu_index", {class: "tbl"}) %></td>
+    </tr>
+    <tr class="premier">
+        <td><%= link_to("プレミアリーグ", "/premier_index", {class: "tbl"}) %></td>
+    </tr>
+    <tr class="serieA">
+        <td><%= link_to("セリエA", "/serie_index", {class: "tbl"}) %></td>
+    </tr>
+    <tr class="league_one">
+        <td><%= link_to("リーグアン", "/league_one_index", {class: "tbl"}) %></td>
+    </tr>
+    <tr class="premera">
+        <td><%= link_to("プリメーラリーガ", "/premera_index", {class: "tbl"}) %></td>
+    </tr>
+    <tr class="UEFA_euro">
+        <td><%= link_to("UEFAユーロ", "/euro_index", {class: "tbl"}) %></td>
+    </tr>
+    <tr class="nations_league">
+        <td><%= link_to("ネーションズリーグ", "/nations_league_index", {class: "tbl"}) %></td>
+    </tr>
+</table>

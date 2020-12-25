@@ -7,49 +7,49 @@ class HomeControllerTest < ActionDispatch::IntegrationTest
     assert_select "title", "ヨーロッパサッカー掲示板"
   end
 
-  test "should get liga" do
+  test "should get liga_index" do
     get liga_path
     assert_response :success
     assert_select "title", "ラ・リーガ"
   end
 
-  test "should get bundesu" do
+  test "should get bundesu_index" do
     get bundesu_path
     assert_response :success
     assert_select "title", "ブンデスリーガ"
   end
 
-  test "should get premier" do
+  test "should get premier_index" do
     get premier_path
     assert_response :success
     assert_select "title", "プレミアリーグ"
   end
 
-  test "should get serie" do
+  test "should get serie_index" do
     get serie_path
     assert_response :success
     assert_select "title", "セリエA"
   end
 
-  test "should get league_one" do
+  test "should get league_one_index" do
     get league_one_path
     assert_response :success
     assert_select "title", "リーグアン"
   end
 
-  test "should get premera" do
+  test "should get premera_index" do
     get premera_path
     assert_response :success
     assert_select "title", "プリメーラリーガ"
   end
 
-  test "should get euro" do
+  test "should get euro_index" do
     get euro_path
     assert_response :success
     assert_select "title", "UEFAユーロ"
   end
 
-  test "should get nations_league" do
+  test "should get nations_league_index" do
     get nations_league_path
     assert_response :success
     assert_select "title", "ネーションズリーグ"

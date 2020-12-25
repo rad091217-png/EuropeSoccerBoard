@@ -1,0 +1,12 @@
+<h1>User#account_activation</h1>
+
+こんにちは <%= @user.name %>さん
+
+<p>
+  ヨーロッパサッカー掲示板にようこそ 下のリンクをクリックするとアカウントを有効化できます
+</p>
+
+<%= link_to "Activate", edit_account_activation_url(@user.activation_token,
+                                                    email: @user.email) %>
+                                                    
+

@@ -1,28 +1,17 @@
 @import "common.scss";
-table {
-    font-size: 25px;
-    background-color: rgb(247, 247, 248);
-    float: left;
-    width: 1540px;
-    overflow: hidden;
-    border-collapse: collapse;
-    height: 615px;
-    :hover{
-        color: orange;
-    }
-    .tbl{
-        text-decoration: none;
+
+body{
+    background-image: url("top.png");
+    background-repeat: no-repeat;
+    background-size: 50%;
+    
+    .main{
+        .welcome{
+            text-color: white;
+        }
+        height: 560px;
     }
 }
-table.row th,
-table.row td {
-    float: left;
-}
-tr{
-    border-bottom: 1px rgb(171, 171, 187) solid;
-}
-
-
 
 
 
