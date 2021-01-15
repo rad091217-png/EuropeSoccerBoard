@@ -1,7 +1,7 @@
 <title>投稿一覧</title>
-<%= stylesheet_link_tag 'posts_index', media: 'all', 'data-turbolinks-track': 'reload' %>
+<%= stylesheet_link_tag "liga", media: 'all', 'data-turbolinks-track': 'reload' %>
 <h1>投稿一覧</h1>
-<%= link_to "投稿する", "/laliga_posts/laliga_new" %>
+<%= link_to "投稿する", "/laliga_posts/new" %>
 <div class="comment">
     <%= @laliga_posts.each do |laliga_post| %>
 </div>
@@ -9,10 +9,9 @@
     <%= laliga_post.title %>
 </div>
 <div class="comments">
-    <%= laliga_post.text>
+    <%= laliga_post %>
  </div>
  <div class="image">
  <%= image_tag @laliga_post.image.url if @laliga_post.image? %>
  <% end %>
 </div>
-<%= paginate(@laliga_posts) %>

@@ -1,3 +1,3 @@
 class LaligaPost < ApplicationRecord
-  mount_uploader :img, ImgUploader
+  mount_uploader :image, ImageUploader
 end

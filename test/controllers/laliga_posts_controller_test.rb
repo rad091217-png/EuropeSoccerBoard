@@ -1,6 +1,6 @@
-require 'test_helper'
+require "test_helper"
 
-class LaligaPostControllerTest < ActionDispatch::IntegrationTest
+class LaligaPostsControllerTest < ActionDispatch::IntegrationTest
   # test "the truth" do
   #   assert true
   # end
