@@ -1,13 +1,12 @@
 <title>ラ・リーガ</title>
 <%= stylesheet_link_tag "liga", media: 'all', 'data-turbolinks-track': 'reload' %>
-<body>
-    <h1 class="posts">ラ・リーガ投稿</h1>
+<body>    <h1 class="posts">ラ・リーガ投稿</h1>
     <div class="row">
         <div class="col-md-6 col-md-offset-3">
-            <%= form_with(model: @laliga_posts, local: true) do |f| %>
+            <%= form_with(model: @laliga_post, local: true) do |f| %>
 
-            <%= f.label :名前, class: "post_name" %>
-            <%= f.text_field :name, class: "form-control" %>
+            <%= f.label :タイトル, class: "title" %>
+            <%= f.text_field :title, class: "form-control" %>
 
             <%= f.label :コメント, class: "post_comment" %>
             <%= f.text_area :text, class: "form-control" %>

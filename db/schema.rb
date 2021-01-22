@@ -13,7 +13,7 @@
 ActiveRecord::Schema.define(version: 2020_12_18_130916) do
 
   create_table "laliga_posts", force: :cascade do |t|
-    t.string "name"
+    t.string "title"
     t.text "text"
     t.string "image"
     t.datetime "created_at", precision: 6

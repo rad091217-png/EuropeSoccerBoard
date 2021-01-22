@@ -6,12 +6,13 @@ class LaligaPostsController < ApplicationController
 
   #投稿作成画面
   def new
+    @laliga_post = LaligaPost.new
   end
 
   #投稿内容保存
   def create
-    @laliga_posts = LaligaPost.create(post_params)
-    if @post.save
+    @laliga_post = LaligaPost.create(post_params)
+    if @laliga_post.save
       flash[:success] = "投稿に成功しました"
 
       redirect_to laliga_posts_url
@@ -24,6 +25,6 @@ class LaligaPostsController < ApplicationController
   private
 
   def post_params
-    params.require(:laliga_post).permit(:name, :text, :image, :remove_image)
+    params.require(:laliga_post).permit(:title, :text, :image, :remove_image)
   end
 end

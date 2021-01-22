@@ -1,0 +1,30 @@
+@import "common.scss";
+body {
+    background-image: url("laliga.png");
+    background-size: cover;
+    .laliga_post_page {
+        font-size: 20px;
+        .post {
+            margin-left: 15px;
+        }
+    }
+        div.title {
+            margin-top: 40px;
+        }
+        p.title {
+            margin-top: 20px;
+            font-size: 20px;
+        }
+        div.comments {
+            margin-top: 20px;
+        }
+        p.comments {
+            margin-top: 20px;
+            font-size: 20px;
+        }
+        .image{
+            width: 10px;
+            height: 10px;
+        }
+    }
+
