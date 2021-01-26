@@ -1,19 +1,23 @@
 <title>投稿一覧</title>
 <%= stylesheet_link_tag "liga_index", media: 'all', 'data-turbolinks-track': 'reload' %>
-<h1>投稿一覧</h1>
-<h2 class="laliga_post_page">投稿ページはこちらへ<span class="post"><%= link_to "投稿ページへ", "/laliga_posts/new" %></h2>
+<h1>ラ・リーガ投稿一覧</h1>
+<h2 class="laliga_post_page">投稿ページはこちらへ<span class="new"><%= link_to "投稿ページへ", "/laliga_posts/new" %></h2>
 <div class="comment">
     <% @laliga_posts.each do |laliga_post| %>
+        <%= laliga_post.user.name %>
+    <%= link_to(laliga_post.content,"/laliga_posts/#{laliga_post.id}") %>
 </div>
+<div class="post">
 <div class="title">
     <p class="title">タイトル</p>
-    <%= laliga_post.title %>
+    <section class="title"><%= laliga_post.title %></section>
 </div>
 <div class="comments">
     <p class="comments">コメント</p>
-    <%= laliga_post.text %>
+    <section class="comments"><%= laliga_post.text %></section>
  </div>
  <div class="image">
- <%= image_tag laliga_post.image.url if laliga_post.image? %>
+ <section class="image"><%= image_tag laliga_post.image.url if laliga_post.image? %></section>
  <% end %>
+</div>
 </div>
