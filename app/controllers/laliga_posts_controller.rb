@@ -11,7 +11,7 @@ class LaligaPostsController < ApplicationController
 
   #投稿内容保存
   def create
-    @laliga_post = LaligaPost.create(post_params)
+    @laliga_post = current_user.laliga_posts.build(post_params)
     if @laliga_post.save
       flash[:success] = "投稿に成功しました"
 

@@ -5,7 +5,7 @@
 <div class="comment">
     <% @laliga_posts.each do |laliga_post| %>
         <%= laliga_post.user.name %>
-    <%= link_to(laliga_post.content,"/laliga_posts/#{laliga_post.id}") %>
+    <%= link_to(laliga_post.user_id,"/laliga_posts/#{laliga_post.id}") %> 
 </div>
 <div class="post">
 <div class="title">
