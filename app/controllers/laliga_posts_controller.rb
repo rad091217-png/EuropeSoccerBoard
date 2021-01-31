@@ -13,12 +13,12 @@ class LaligaPostsController < ApplicationController
   def create
     @laliga_post = current_user.laliga_posts.build(post_params)
     if @laliga_post.save
-      flash[:success] = "投稿に成功しました"
+      flash.now[:success] = "投稿に成功しました"
 
       redirect_to laliga_posts_url
     else
-      flash[:danger] = "投稿に失敗しました"
-      render "/new"
+      flash.now[:danger] = "タイトルとコメント両方入力してください"
+      render "laliga_posts/new"
     end
   end
 

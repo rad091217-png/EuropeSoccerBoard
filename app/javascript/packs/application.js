@@ -12,7 +12,11 @@ import "bootstrap"
 
 
 $(function(){
-    setTimeout("$('.time-limit').fadeOut('slow')", 100) 
+    setTimeout("$('.time-limit-success').fadeOut('slow')",5000) 
+  })
+
+  $(function(){
+    setTimeout("$('.time-limit-danger').fadeOut('slow')", 5000) 
   })
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)

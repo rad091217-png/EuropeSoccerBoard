@@ -8,7 +8,7 @@
             <li><%= link_to "ログアウト", "/logout", {method: :delete} %></li>
             <li><%= link_to "全てのユーザー", "/users", {class: "link"} %></li>
              <li><%= link_to "メールアドレス、パスワードの変更", edit_user_path(current_user), {class: "link"} %></li>
-            <li><%= link_to "プロフィール", "", {class: "link"} %></li>
+            <li><%= link_to "プロフィール", user_path(current_user), {class: "link"} %></li>
             <li><%= link_to("要望、お問い合わせ", "/help", {class: "link"}) %></li>
             <li><%= link_to("投稿リーグ選択画面", "/column", {class: "link"}) %></li>
             <% else %>

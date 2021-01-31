@@ -4,8 +4,6 @@
 <h2 class="laliga_post_page">投稿ページはこちらへ<span class="new"><%= link_to "投稿ページへ", "/laliga_posts/new" %></h2>
 <div class="comment">
     <% @laliga_posts.each do |laliga_post| %>
-        <%= laliga_post.user.name %>
-    <%= link_to(laliga_post.user_id,"/laliga_posts/#{laliga_post.id}") %> 
 </div>
 <div class="post">
 <div class="title">
@@ -18,6 +16,7 @@
  </div>
  <div class="image">
  <section class="image"><%= image_tag laliga_post.image.url if laliga_post.image? %></section>
+ <p class="user_name">ユーザー名 <%= link_to(laliga_post.user.name, user_path(laliga_post.user_id)) %></p>
  <% end %>
 </div>
 </div>
