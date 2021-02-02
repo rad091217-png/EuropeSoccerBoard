@@ -48,4 +48,15 @@ footer {
             text-decoration: none;
         }
     }
+    div.flash.time-limit-success{
+        background-color: blanchedalmond;
+        margin-top: 20px;
+        color: red;
+    }
+
+    div.flash.time-limit-danger{
+        background-color: blanchedalmond;
+        margin-top: 20px;
+        color: red;
+    }
 }

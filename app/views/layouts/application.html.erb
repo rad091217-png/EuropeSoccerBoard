@@ -14,19 +14,11 @@
 
 <body>
     <%= render "layouts/header" %>
-    <% flash.each do |message_type, message| %>
+    <!--<% flash.each do |message_type, message| %>
     <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
     <% end %>
-
-        <% if flash.now[:success] %>
-      <div class="flash time-limit-success">
-        <%= flash.now[:success] %>
-        </div>
-        <% else %>
-        <div class="flash time-limit-danger">
-        <%= flash.now[:danger] %>
-      </div>
-    <% end %>
+    -->
+    <%= render "layouts/flash" %>
     <%= yield %>
     <%= render "layouts/footer" %>
     <%= debug(params) if Rails.env.development? %>
