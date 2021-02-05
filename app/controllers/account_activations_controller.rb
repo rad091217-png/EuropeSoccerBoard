@@ -6,10 +6,10 @@ class AccountActivationsController < ApplicationController
       user.update_attribute(:activated, true)
       user.update_attribute(:activated_at, Time.zone.now)
       log_in user
-      flash[:success] = "あなたのアカウントは有効化されました"
+      flash.now[:success] = "あなたのアカウントは有効化されました"
       redirect_to user
     else
-      flash[:danger] = "アカウント有効化に失敗しました"
+      flash.now[:danger] = "アカウント有効化に失敗しました"
       redirect_to root_url
     end
   end
