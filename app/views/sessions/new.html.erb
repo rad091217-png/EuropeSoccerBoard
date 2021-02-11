@@ -1,9 +1,8 @@
-<%= stylesheet_link_tag 'sessions', media: 'all', 'data-turbolinks-track': 'reload' %>
+<%= stylesheet_link_tag 'sessions_new', media: 'all', 'data-turbolinks-track': 'reload' %>
 <h1 class="login">ログイン</h1>
 <div class="row">
     <div class="col-md-6 col-md-offset-3">
         <%= form_with(url: login_path, scope: :session, local: true) do |f| %>
-
         <%= f.label :メールアドレス, class: "login_address" %>
         <%= f.email_field :email, class: 'form-control' %>
 

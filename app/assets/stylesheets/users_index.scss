@@ -1,14 +1,9 @@
 @import "common.scss";
-body{
-.all_users{
-    margin-left: 30px;
-}
 .users {
-    list-style: none;
-    margin-top: 10px;
-    li {
-      padding: 5px;
-      border-bottom: 1px solid black;
-    }
+  width: 1500px;
+  list-style: none;
+  section.users {
+    padding: 5px;
+    border-bottom: 1px solid black;
   }
 }

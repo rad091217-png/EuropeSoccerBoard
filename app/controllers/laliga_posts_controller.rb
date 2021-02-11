@@ -6,16 +6,16 @@ class LaligaPostsController < ApplicationController
 
   #投稿作成画面
   def new
-    @laliga_post = LaligaPost.new
+    @laliga_post = current_user.laliga_posts.build()
   end
 
   #投稿内容保存
   def create
     @laliga_post = current_user.laliga_posts.build(post_params)
     if @laliga_post.save
-      flash.now[:success] = "投稿に成功しました"
 
       redirect_to laliga_posts_url
+      flash[:success] = "投稿に成功しました"
     else
       flash.now[:danger] = "タイトルとコメント両方入力してください"
       render "laliga_posts/new"

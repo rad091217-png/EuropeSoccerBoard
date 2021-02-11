@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   get "/login", to: "sessions#new"
   post "/login", to: "sessions#create"
   delete "/logout", to: "sessions#destroy"
+  resources :messages, :only => [:create]
+  resources :rooms, :only => [:create, :show, :index]
   resources :users do
     member do
       get :following, :followers
@@ -22,4 +24,7 @@ Rails.application.routes.draw do
   resources :users
   resources :account_activations, only: [:edit]
   resources :relationships, only: [:create, :destroy]
+  scope "/:locale" do
+    resources :books
+  end
 end
