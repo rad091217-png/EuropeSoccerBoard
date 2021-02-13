@@ -1,5 +1,5 @@
 class RoomsController < ApplicationController
-  before_action :logged_in_user?
+  before_action :logged_in_user
 
   def create
     @room = Room.create
@@ -16,6 +16,14 @@ class RoomsController < ApplicationController
       @entries = @room.entries
     else
       redirect_back(fallback_location: root_path)
+    end
+  end
+
+  def logged_in_user
+    unless logged_in?
+      store_location
+      flash.now[:danger] = "ログインして下さい"
+      redirect_to login_url
     end
   end
 end
