@@ -1,5 +1,7 @@
 class User < ApplicationRecord
   has_many :laliga_posts
+  has_many :likes, dependent: :destroy
+  has_many :liked_posts, through: :likes, source: :laliga_post
   has_many :active_relationships, class_name: "Relationship",
                                   foreign_key: "follower_id",
                                   dependent: :destroy
@@ -19,6 +21,10 @@ class User < ApplicationRecord
                     uniqueness: true
   has_secure_password
   validates :password, presence: true, length: { minimum: 6 } # allow_nil: true
+
+  def already_liked?(laliga_post)
+    self.likes.exists?(laliga_post_id: laliga_post.id)
+  end
 
   def User.digest(string)
     cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
@@ -82,6 +88,11 @@ class User < ApplicationRecord
   # 現在のユーザーがフォローしてたらtrueを返す
   def following?(other_user)
     following.include?(other_user)
+  end
+
+  def correct_user(user, current_user)
+    @user = User.find(user.id)
+    redirect_to(root_url) unless current_user == @user
   end
 
   private

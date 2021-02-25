@@ -10,6 +10,7 @@ module SoccerBoard
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.0
+    I18n.enforce_available_locales = false
     config.i18n.default_locale = :ja
     config.i18n.load_path += Dir[Rails.root.join("config", "locales", "**", "*.yml").to_s]
 

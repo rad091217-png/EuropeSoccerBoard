@@ -27,6 +27,7 @@
 /storage/*
 !/storage/.keep
 
+/.env
 /public/assets
 .byebug_history
 

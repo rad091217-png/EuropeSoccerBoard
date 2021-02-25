@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'contacts/new'
+  get 'contacts/create'
   root "home#top"
   get "/help", to: "home#help"
   get "/column", to: "home#column"
@@ -26,5 +28,10 @@ Rails.application.routes.draw do
   resources :relationships, only: [:create, :destroy]
   scope "/:locale" do
     resources :books
+  end
+  resource :profile, only: %i[show edit update]
+  resources :users, only: [:index, :show]
+  resources :laliga_posts, only: [:index, :show, :create] do
+    resources :likes, only: [:create, :destroy]
   end
 end

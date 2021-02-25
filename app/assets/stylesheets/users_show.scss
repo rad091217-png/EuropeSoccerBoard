@@ -1,22 +1,29 @@
 @import "common.scss";
-
-.user_name{
-    font-size: 20px;
-    :hover {
-        color: rgb(193, 193, 241);
-        text-decoration: none;
+.user_name {
+        font-size: 20px;
+        :hover {
+            text-decoration: none;
+        }
     }
-}
-
-.follow_info{
+    .edit_profile {
+        margin-top: 20px;
+    }
+    .stars{
+        margin-top: 20px;
+    }
+.follow_info {
     overflow: hidden;
     :hover {
         color: rgb(193, 193, 241);
         text-decoration: none;
     }
-    .my_follower, .follow{
+    .my_follower,
+    .follow {
         margin-right: 10px;
         list-style: none;
         float: right;
+    }
+    p.message {
+        font-size: 15px;
     }
 }

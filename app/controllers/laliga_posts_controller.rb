@@ -2,6 +2,7 @@ class LaligaPostsController < ApplicationController
   # 投稿一覧
   def index
     @laliga_posts = LaligaPost.paginate(page: params[:page])
+    @laliga_post_like = Laliga_post_Like.new
   end
 
   #投稿作成画面
@@ -13,7 +14,6 @@ class LaligaPostsController < ApplicationController
   def create
     @laliga_post = current_user.laliga_posts.build(post_params)
     if @laliga_post.save
-
       redirect_to laliga_posts_url
       flash[:success] = "投稿に成功しました"
     else
