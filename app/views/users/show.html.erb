@@ -1,27 +1,29 @@
 <%= stylesheet_link_tag "users_show", media: 'all', 'data-turbolinks-track': 'reload' %>
-    <h1 class="user_name">
-        <%= gravatar_for @user %>
-        <%= @user.name %>
-    </h1>
-    <% if @user.correct_user(@user, @current_user) %>
-    <p class="edit_profile"><%=link_to "プロフィール設定", edit_profile_path %></p>
-    <% else %>
-    <% end %>
-    <div class="stats">
-      <%= render 'shared/stats' %>
-    </div>
-    <%= render 'follow_form' if logged_in? %>
+<h1 class="user_name">
+    <%= gravatar_for @user %>
+    <%= @user.name %>
+</h1>
 
-   <% if @user.id == current_user.id %>
+<% if @user.correct_user(current_user) %>
+<p class="edit_profile"><%=link_to "プロフィール設定", edit_profile_path %></p>
+<% else %>
+<% end %>
+
+<div class="stats">
+    <%= render 'shared/stats' %>
+</div>
+<%= render 'follow_form' if logged_in? %>
+
+<% if @user.id == current_user.id %>
 
 <% else %>
 <% if @isRoom == true %>
 <p class="message"><a href="/rooms/<%= @roomId %>">メッセージ</a>
-<% else %>
-<%= form_for @room do |f| %>
-<%= fields_for @entry do |e| %>
-<%= e.hidden_field :user_id, :value=> @user.id %>
-<% end %>
+    <% else %>
+    <%= form_for @room do |f| %>
+    <%= fields_for @entry do |e| %>
+    <%= e.hidden_field :user_id, :value=> @user.id %>
+    <% end %>
 <p class="message"><%= f.submit "メッセージ" %></p>
 <% end %>
 <% end %>

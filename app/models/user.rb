@@ -90,9 +90,12 @@ class User < ApplicationRecord
     following.include?(other_user)
   end
 
-  def correct_user(user, current_user)
-    @user = User.find(user.id)
-    redirect_to(root_url) unless current_user == @user
+  def correct_user(current_user)
+    if id == current_user.id
+      true
+    else
+      # do nothing
+    end
   end
 
   private

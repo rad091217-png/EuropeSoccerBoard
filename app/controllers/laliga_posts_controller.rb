@@ -2,11 +2,11 @@ class LaligaPostsController < ApplicationController
   # 投稿一覧
   def index
     @laliga_posts = LaligaPost.paginate(page: params[:page])
-    @laliga_post_like = Laliga_post_Like.new
+    @laliga_post_like = Like.new
   end
 
   #投稿作成画面
-  def new
+  def show
     @laliga_post = current_user.laliga_posts.build()
   end
 

@@ -11,6 +11,7 @@ class ContactsController < ApplicationController
       redirect_to root_path
     else
       render :new
+      flash[:denger] = "メールアドレスをただしく入力してください"
     end
   end
 

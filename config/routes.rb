@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
-  get 'contacts/new'
-  get 'contacts/create'
   root "home#top"
-  get "/help", to: "home#help"
+  get "contacts/new"
+  post "contacts/create"
   get "/column", to: "home#column"
   get "/bundesu_index", to: "home#bundesu_index"
   get "/premier_index", to: "home#premier_index"
