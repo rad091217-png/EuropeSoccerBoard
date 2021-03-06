@@ -1,8 +1,9 @@
 class LaligaPostsController < ApplicationController
+  before_action :authenticate_user!, only: [:show, :create]
   # 投稿一覧
   def index
     @laliga_posts = LaligaPost.paginate(page: params[:page])
-    @laliga_post_like = Like.new
+    @laliga_posts_likes = LaligaPostLike.new
   end
 
   #投稿作成画面

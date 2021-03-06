@@ -1,15 +1,16 @@
 @import "common.scss";
 table {
+    width: 1535px;
     font-size: 25px;
     background-color: rgb(247, 247, 248);
     float: left;
     overflow: hidden;
     border-collapse: collapse;
-    height: 700px;
-    :hover{
+    height: 615px;
+    :hover {
         color: orange;
     }
-    .tbl{
+    .tbl {
         text-decoration: none;
     }
 }
@@ -17,6 +18,6 @@ table.row th,
 table.row td {
     float: left;
 }
-tr{
+tr {
     border-bottom: 1px rgb(171, 171, 187) solid;
 }

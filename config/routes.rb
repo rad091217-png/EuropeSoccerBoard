@@ -33,4 +33,5 @@ Rails.application.routes.draw do
   resources :laliga_posts, only: [:index, :show, :create] do
     resources :likes, only: [:create, :destroy]
   end
+  get "laliga_posts/index"
 end

@@ -13,11 +13,13 @@
 </head>
 
 <body>
+<div class="footer_fixed">
     <%= render "layouts/header" %>
     <%= render "layouts/flash" %>
     <%= yield %>
     <%= render "layouts/footer" %>
-    <%= debug(params) if Rails.env.development? %>
+    </div>
+    
 </body>
 
 </html>

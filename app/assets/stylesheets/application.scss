@@ -1,7 +1,9 @@
 @import "common.scss";
-@import "mixin.scss";
-@import "font-awesome-sprockets";
-@import "font-awesome";
+.footer_fixed{
+    min-height: 100vh;
+    position: relative;
+    box-sizing: border-box;
+}
 header {
     background-color: gray;
     height: 55px;
@@ -34,12 +36,16 @@ header {
 
 footer {
     background-color: gray;
+    position: absolute;
+    bottom: 0;
+    height: 60px;
+    width: 1535px;
     .link {
         color: white;
         text-decoration: none;
     }
     .footer_title {
-        padding-top: 8px;
+        padding-top: 14px;
         padding-bottom: 8px;
         font-size: 25px;
         :hover {

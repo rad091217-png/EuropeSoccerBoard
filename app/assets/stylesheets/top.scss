@@ -3,13 +3,21 @@
 body{
     background-image: url("top.png");
     background-repeat: no-repeat;
-    background-size: 50%;
-    
+    background-color: rgba(255,255,255,0.3);
+    background-blend-mode:soft-light;
+    background-size: 100%;
     .main{
+        margin-left: 250px;
+        margin-top: 200px;
         .welcome{
-            text-color: white;
+            font-size: 40px;
+            color: white;
         }
-        height: 560px;
+        .myfavorite{
+            margin-top: 30px;
+            font-size: 20px;
+            color: white;
+        }
     }
 }
 

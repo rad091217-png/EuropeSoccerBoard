@@ -20,6 +20,6 @@
 <%= form_for @message do |f| %>
   <section class="message"><%= f.text_field :content, :placeholder => "メッセージを入力して下さい" , :size => 70 %>
   <%= f.hidden_field :room_id, :value => @room.id %>
-  <%= f.submit "メッセージを送る" %>
+<%= f.submit "メッセージを送る", class: "btn btn-primary" %>
   </section>
 <% end %>

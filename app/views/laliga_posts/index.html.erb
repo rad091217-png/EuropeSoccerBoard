@@ -1,4 +1,3 @@
-<title>投稿一覧</title>
 <%= stylesheet_link_tag "liga_index", media: 'all', 'data-turbolinks-track': 'reload' %>
 <h1>ラ・リーガ投稿一覧</h1>
 <h2 class="laliga_post_page">投稿ページはこちらへ<span class="new"><%= link_to "投稿ページへ", "/laliga_posts/new" %></h2>
@@ -16,7 +15,7 @@
             <section class="comments"><%= laliga_post.text %></section>
         </div>
         <div class="good">
-            <p class="good">いいね件数: <%= @laliga_post.likes.count %>
+            <p class="good">いいね件数: <%= @laliga_posts_likes.count %>
                 <% if current_user.already_liked?(@laliga_post) %>
                 <%= button_to 'いいねを取り消す', laliga_post_like_path(@laliga_post), method: :delete %>
                 <% else %>
@@ -28,3 +27,6 @@
                 <% end %>
             </div>
         </div>
+    </div>
+</div>
+<%= will_paginate %>
