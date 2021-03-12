@@ -6,9 +6,8 @@ class ProfilesController < ApplicationController
   def update
     @user = User.find(current_user.id)
     if @user.update(user_params)
-      redirect_to profile_path
+      redirect_to controller: :users, action: :update
     else
-      flash.now["danger"] = "自己紹介が入力されていません"
       render :edit
     end
   end
@@ -16,6 +15,6 @@ class ProfilesController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:introduction)
+    params.require(:user).permit(:introduction, :avatar)
   end
 end
