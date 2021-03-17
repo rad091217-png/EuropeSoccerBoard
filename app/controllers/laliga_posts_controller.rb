@@ -1,14 +1,16 @@
 class LaligaPostsController < ApplicationController
-  before_action :authenticate_user!, only: [:show, :create]
   # 投稿一覧
   def index
     @laliga_posts = LaligaPost.paginate(page: params[:page])
-    @laliga_posts_likes = LaligaPostLike.new
   end
 
   #投稿作成画面
   def show
     @laliga_post = current_user.laliga_posts.build()
+  end
+
+  def new
+    @laliga_post = LaligaPost.new
   end
 
   #投稿内容保存
@@ -20,6 +22,15 @@ class LaligaPostsController < ApplicationController
     else
       flash.now[:danger] = "タイトルとコメント両方入力してください"
       render "laliga_posts/new"
+    end
+  end
+
+  def destroy
+    @laliga_posts = LaligaPost.paginate(page: params[:page])
+    if @laliga_posts.user_id == current_user.id
+      @laliga_posts.destroy
+      flash[:success] = "投稿を削除しました"
+      redirect_back(fallback_location: "laliga_post/index")
     end
   end
 

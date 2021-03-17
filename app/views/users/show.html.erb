@@ -3,7 +3,6 @@
         <%= gravatar_for @user %>
         <%= @user.name %>
     </h1>
-    
     <% if @user.correct_user(current_user) %>
 <p class="edit_profile"><%=link_to "プロフィール設定", edit_profile_path %></p>
 <% else %>

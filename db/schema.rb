@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_10_073824) do
+ActiveRecord::Schema.define(version: 2021_03_16_182022) do
+
+  create_table "bundesu_posts", force: :cascade do |t|
+    t.string "title"
+    t.text "text"
+    t.string "image"
+    t.datetime "created_at", precision: 6
+    t.datetime "updated_at", precision: 6
+    t.integer "user_id"
+  end
 
   create_table "contacts", force: :cascade do |t|
     t.string "email"
@@ -26,7 +35,34 @@ ActiveRecord::Schema.define(version: 2021_03_10_073824) do
     t.integer "room_id"
   end
 
+  create_table "eredivisie_posts", force: :cascade do |t|
+    t.string "titile"
+    t.text "text"
+    t.string "image"
+    t.integer "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "eredivisies_post", force: :cascade do |t|
+    t.string "titile"
+    t.text "text"
+    t.string "image"
+    t.integer "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "laliga_posts", force: :cascade do |t|
+    t.string "title"
+    t.text "text"
+    t.string "image"
+    t.datetime "created_at", precision: 6
+    t.datetime "updated_at", precision: 6
+    t.integer "user_id"
+  end
+
+  create_table "league_one_posts", force: :cascade do |t|
     t.string "title"
     t.text "text"
     t.string "image"
@@ -41,6 +77,15 @@ ActiveRecord::Schema.define(version: 2021_03_10_073824) do
     t.datetime "updated_at", precision: 6, null: false
     t.integer "user_id"
     t.integer "room_id"
+  end
+
+  create_table "premier_posts", force: :cascade do |t|
+    t.string "title"
+    t.text "text"
+    t.string "image"
+    t.datetime "created_at", precision: 6
+    t.datetime "updated_at", precision: 6
+    t.integer "user_id"
   end
 
   create_table "profiles", force: :cascade do |t|
@@ -65,6 +110,15 @@ ActiveRecord::Schema.define(version: 2021_03_10_073824) do
     t.integer "room_id"
   end
 
+  create_table "serie_posts", force: :cascade do |t|
+    t.string "title"
+    t.text "text"
+    t.string "image"
+    t.integer "user_id"
+    t.datetime "created_at", precision: 6
+    t.datetime "updated_at", precision: 6
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "email"
@@ -77,6 +131,8 @@ ActiveRecord::Schema.define(version: 2021_03_10_073824) do
     t.boolean "activated", default: false
     t.datetime "activated_at"
     t.integer "user_id"
+    t.string "introduction"
+    t.string "avatar_cache"
     t.string "avatar"
     t.index ["email"], name: "index_users_on_email", unique: true
   end

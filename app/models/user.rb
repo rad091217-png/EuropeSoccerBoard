@@ -1,5 +1,13 @@
 class User < ApplicationRecord
   has_many :laliga_posts
+  has_many :bundesu_posts
+  has_many :premier_posts
+  has_many :serie_posts
+  has_many :league_one_posts
+  has_many :eredivisie_posts
+  has_many :premera_posts
+  has_many :euro_posts
+  has_many :nations_posts
   has_many :likes, dependent: :destroy
   has_many :liked_posts, through: :likes, source: :laliga_post
   has_many :active_relationships, class_name: "Relationship",
@@ -94,7 +102,7 @@ class User < ApplicationRecord
     if id == current_user.id
       true
     else
-      # do nothing
+      redirect_back(fallback_location: root_path)
     end
   end
 
