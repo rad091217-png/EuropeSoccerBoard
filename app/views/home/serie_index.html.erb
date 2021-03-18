@@ -1,9 +1,0 @@
-<title>セリエA</title>
-<%= stylesheet_link_tag 'serieA', media: 'all', 'data-turbolinks-track': 'reload' %>
-<h1>セリエA</h1>
-<% if logged_in? %>
-
-<%= render "posts/new" %>
-<% else %>
-<p> 登録がまだの方はこちらへ <%= link_to("新規登録", "/signup", {class: "link"}) %> </p>
-<% end %>

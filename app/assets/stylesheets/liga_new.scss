@@ -1,7 +1,8 @@
 @import "common.scss";
 body {
     background-image: url("laliga.png");
-    background-size: cover;
+    background-repeat: no-repeat;
+    background-size: 20%;
     .posts {
         margin-top: 30px;
         text-align: center;

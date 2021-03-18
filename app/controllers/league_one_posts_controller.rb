@@ -1,4 +1,5 @@
 class LeagueOnePostsController < ApplicationController
+  before_action :logged_in_user
   # 投稿一覧
   def index
     @league_one_posts = LeagueOnePost.paginate(page: params[:page])
@@ -29,5 +30,13 @@ class LeagueOnePostsController < ApplicationController
 
   def post_params
     params.require(:league_one_post).permit(:title, :text, :image, :remove_image)
+  end
+
+  def logged_in_user
+    unless logged_in?
+      store_location
+      flash.now[:danger] = "ログインして下さい"
+      redirect_to login_url
+    end
   end
 end

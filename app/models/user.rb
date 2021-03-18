@@ -5,7 +5,9 @@ class User < ApplicationRecord
   has_many :serie_posts
   has_many :league_one_posts
   has_many :eredivisie_posts
+  has_many :jupiler_posts
   has_many :premera_posts
+  has_many :scotish_posts
   has_many :euro_posts
   has_many :nations_posts
   has_many :likes, dependent: :destroy
@@ -20,7 +22,7 @@ class User < ApplicationRecord
   has_many :followers, through: :passive_relationships, source: :follower
   has_many :messages, dependent: :destroy
   has_many :entries, dependent: :destroy
-  attr_accessor :remember_token, :activation_token
+  attr_accessor :remember_token, :activation_token, :avatar_cache
   before_save { self.email = email.downcase }
   validates :name, presence: true, length: { maximum: 50 }
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i

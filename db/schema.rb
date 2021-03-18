@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_16_182022) do
+ActiveRecord::Schema.define(version: 2021_03_18_043005) do
 
   create_table "bundesu_posts", force: :cascade do |t|
     t.string "title"
@@ -36,21 +36,30 @@ ActiveRecord::Schema.define(version: 2021_03_16_182022) do
   end
 
   create_table "eredivisie_posts", force: :cascade do |t|
-    t.string "titile"
+    t.string "title"
     t.text "text"
     t.string "image"
     t.integer "user_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", precision: 6
+    t.datetime "updated_at", precision: 6
   end
 
-  create_table "eredivisies_post", force: :cascade do |t|
-    t.string "titile"
+  create_table "euro_posts", force: :cascade do |t|
+    t.string "title"
     t.text "text"
     t.string "image"
     t.integer "user_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", precision: 6
+    t.datetime "updated_at", precision: 6
+  end
+
+  create_table "jupiler_posts", force: :cascade do |t|
+    t.string "title"
+    t.text "text"
+    t.string "image"
+    t.integer "user_id"
+    t.datetime "created_at", precision: 6
+    t.datetime "updated_at", precision: 6
   end
 
   create_table "laliga_posts", force: :cascade do |t|
@@ -77,6 +86,24 @@ ActiveRecord::Schema.define(version: 2021_03_16_182022) do
     t.datetime "updated_at", precision: 6, null: false
     t.integer "user_id"
     t.integer "room_id"
+  end
+
+  create_table "nations_posts", force: :cascade do |t|
+    t.string "title"
+    t.text "text"
+    t.string "image"
+    t.integer "user_id"
+    t.datetime "created_at", precision: 6
+    t.datetime "updated_at", precision: 6
+  end
+
+  create_table "premera_posts", force: :cascade do |t|
+    t.string "title"
+    t.text "text"
+    t.string "image"
+    t.integer "user_id"
+    t.datetime "created_at", precision: 6
+    t.datetime "updated_at", precision: 6
   end
 
   create_table "premier_posts", force: :cascade do |t|
@@ -108,6 +135,15 @@ ActiveRecord::Schema.define(version: 2021_03_16_182022) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "room_id"
+  end
+
+  create_table "scotish_posts", force: :cascade do |t|
+    t.string "title"
+    t.text "text"
+    t.string "image"
+    t.integer "user_id"
+    t.datetime "created_at", precision: 6
+    t.datetime "updated_at", precision: 6
   end
 
   create_table "serie_posts", force: :cascade do |t|

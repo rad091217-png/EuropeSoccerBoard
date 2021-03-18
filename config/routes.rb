@@ -20,6 +20,11 @@ Rails.application.routes.draw do
   resources :serie_posts
   resources :league_one_posts
   resources :eredivisie_posts
+  resources :jupiler_posts
+  resources :premera_posts
+  resources :scotish_posts
+  resources :euro_posts
+  resources :nations_posts
   resources :users
   resources :account_activations, only: [:edit]
   resources :relationships, only: [:create, :destroy]
