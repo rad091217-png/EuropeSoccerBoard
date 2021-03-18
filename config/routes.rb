@@ -25,6 +25,8 @@ Rails.application.routes.draw do
   resources :scotish_posts
   resources :euro_posts
   resources :nations_posts
+  resources :champions_posts
+  resources :europe_posts
   resources :users
   resources :account_activations, only: [:edit]
   resources :relationships, only: [:create, :destroy]

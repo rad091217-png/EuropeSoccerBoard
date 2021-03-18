@@ -2,7 +2,7 @@ class BundesuPostsController < ApplicationController
   before_action :logged_in_user
   # 投稿一覧
   def index
-    @bundesu_posts = BundesuPost.paginate(page: params[:page])
+    @bundesu_posts = BundesuPost.paginate(page: params[:page]).order(created_at: :desc)
   end
 
   #投稿作成画面
@@ -23,6 +23,15 @@ class BundesuPostsController < ApplicationController
     else
       flash.now[:danger] = "タイトルとコメント両方入力してください"
       render "bundesu_posts/new"
+    end
+  end
+
+  def destroy
+    @bundesu_posts = BundesuPost.paginate(page: params[:page]).order(created_at: :desc)
+    if @bundesu_posts.user_id == current_user.id
+      @bundesu_posts.destroy
+      flash[:success] = "投稿を削除しました"
+      redirect_back(fallback_location: "bundesu_post/index")
     end
   end
 

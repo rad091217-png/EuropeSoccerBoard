@@ -2,7 +2,7 @@ class EredivisiePostsController < ApplicationController
   before_action :logged_in_user
   # 投稿一覧
   def index
-    @eredivisie_posts = EredivisiePost.paginate(page: params[:page])
+    @eredivisie_posts = EredivisiePost.paginate(page: params[:page]).order(created_at: :desc)
   end
 
   #投稿作成画面
@@ -23,6 +23,15 @@ class EredivisiePostsController < ApplicationController
     else
       flash.now[:danger] = "タイトルとコメント両方入力してください"
       render "eredivisie_posts/new"
+    end
+  end
+
+  def destroy
+    @eredivisie_posts = EredivisiePost.paginate(page: params[:page]).order(created_at: :desc)
+    if @eredivisie_posts.user_id == current_user.id
+      @eredivisie_posts.destroy
+      flash[:success] = "投稿を削除しました"
+      redirect_back(fallback_location: "eredivisie_post/index")
     end
   end
 

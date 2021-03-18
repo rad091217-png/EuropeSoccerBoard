@@ -10,6 +10,8 @@ class User < ApplicationRecord
   has_many :scotish_posts
   has_many :euro_posts
   has_many :nations_posts
+  has_many :champions_posts
+  has_many :europe_posts
   has_many :likes, dependent: :destroy
   has_many :liked_posts, through: :likes, source: :laliga_post
   has_many :active_relationships, class_name: "Relationship",

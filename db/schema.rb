@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_18_043005) do
+ActiveRecord::Schema.define(version: 2021_03_18_073745) do
 
   create_table "bundesu_posts", force: :cascade do |t|
     t.string "title"
@@ -19,6 +19,15 @@ ActiveRecord::Schema.define(version: 2021_03_18_043005) do
     t.datetime "created_at", precision: 6
     t.datetime "updated_at", precision: 6
     t.integer "user_id"
+  end
+
+  create_table "champions_posts", force: :cascade do |t|
+    t.string "title"
+    t.text "text"
+    t.string "image"
+    t.integer "user_id"
+    t.datetime "created_at", precision: 6
+    t.datetime "updated_at", precision: 6
   end
 
   create_table "contacts", force: :cascade do |t|
@@ -45,6 +54,15 @@ ActiveRecord::Schema.define(version: 2021_03_18_043005) do
   end
 
   create_table "euro_posts", force: :cascade do |t|
+    t.string "title"
+    t.text "text"
+    t.string "image"
+    t.integer "user_id"
+    t.datetime "created_at", precision: 6
+    t.datetime "updated_at", precision: 6
+  end
+
+  create_table "europe_posts", force: :cascade do |t|
     t.string "title"
     t.text "text"
     t.string "image"

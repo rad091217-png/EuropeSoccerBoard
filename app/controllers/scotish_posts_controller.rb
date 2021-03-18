@@ -27,7 +27,7 @@ class ScotishPostsController < ApplicationController
   end
 
   def destroy
-    @scotish_posts = ScotishPost.paginate(page: params[:page])
+    @scotish_posts = ScotishPost.paginate(page: params[:page]).order(created_at: :desc)
     if @scotish_posts.user_id == current_user.id
       @scotish_posts.destroy
       flash[:success] = "投稿を削除しました"

@@ -26,6 +26,15 @@ class LeagueOnePostsController < ApplicationController
     end
   end
 
+  def destroy
+    @league_one_posts = LeagueOnePost.paginate(page: params[:page]).order(created_at: :desc)
+    if @league_one_posts.user_id == current_user.id
+      @league_one_posts.destroy
+      flash[:success] = "投稿を削除しました"
+      redirect_back(fallback_location: "league_one_post/index")
+    end
+  end
+
   private
 
   def post_params

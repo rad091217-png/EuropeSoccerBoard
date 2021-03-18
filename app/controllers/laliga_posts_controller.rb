@@ -27,7 +27,7 @@ class LaligaPostsController < ApplicationController
   end
 
   def destroy
-    @laliga_posts = LaligaPost.paginate(page: params[:page])
+    @laliga_posts = LaligaPost.paginate(page: params[:page]).order(created_at: :desc)
     if @laliga_posts.user_id == current_user.id
       @laliga_posts.destroy
       flash[:success] = "投稿を削除しました"

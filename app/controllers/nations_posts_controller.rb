@@ -26,6 +26,15 @@ class NationsPostsController < ApplicationController
     end
   end
 
+  def destroy
+    @nations_posts = NationsPost.paginate(page: params[:page]).order(created_at: :desc)
+    if @nations_posts.user_id == current_user.id
+      @nations_posts.destroy
+      flash[:success] = "投稿を削除しました"
+      redirect_back(fallback_location: "nations_post/index")
+    end
+  end
+
   private
 
   def post_params

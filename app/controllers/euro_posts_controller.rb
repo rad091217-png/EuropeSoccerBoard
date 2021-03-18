@@ -26,6 +26,15 @@ class EuroPostsController < ApplicationController
     end
   end
 
+  def destroy
+    @euro_posts = EuroPost.paginate(page: params[:page]).order(created_at: :desc)
+    if @euro_posts.user_id == current_user.id
+      @euro_posts.destroy
+      flash[:success] = "投稿を削除しました"
+      redirect_back(fallback_location: "euro_post/index")
+    end
+  end
+
   private
 
   def post_params

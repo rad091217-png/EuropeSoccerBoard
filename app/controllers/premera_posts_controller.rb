@@ -26,6 +26,15 @@ class PremeraPostsController < ApplicationController
     end
   end
 
+  def destroy
+    @premera_posts = PremeraPost.paginate(page: params[:page]).order(created_at: :desc)
+    if @premera_posts.user_id == current_user.id
+      @premera_posts.destroy
+      flash[:success] = "投稿を削除しました"
+      redirect_back(fallback_location: "premera_post/index")
+    end
+  end
+
   private
 
   def post_params
