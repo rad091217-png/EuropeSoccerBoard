@@ -17,7 +17,7 @@
         <div class="image">
             <section class="image"><%= image_tag champions_post.image.url if champions_post.image? %></section>
             <div class="post_destroy">
-            <%= link_to("投稿削除", "/champions_posts/#{champions_post.id}/destroy", {method: :delete} ) %>
+            <%= link_to("投稿削除", champions_post_path(champions_post), {method: :delete} ) %>
             </div>
             <p class="user_name">ユーザー名 <%= link_to(champions_post.user.name, user_path(champions_post.user_id)) %></p>
             <% end %>

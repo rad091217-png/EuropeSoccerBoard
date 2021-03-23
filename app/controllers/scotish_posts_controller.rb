@@ -1,8 +1,9 @@
 class ScotishPostsController < ApplicationController
   before_action :logged_in_user
+  before_action :correct_user, only: [:destroy]
   # 投稿一覧
   def index
-    @scotish_posts = ScotishPost.paginate(page: params[:page])
+    @scotish_posts = ScotishPost.paginate(page: params[:page]).order(created_at: :desc)
   end
 
   #投稿作成画面
@@ -27,12 +28,10 @@ class ScotishPostsController < ApplicationController
   end
 
   def destroy
-    @scotish_posts = ScotishPost.paginate(page: params[:page]).order(created_at: :desc)
-    if @scotish_posts.user_id == current_user.id
-      @scotish_posts.destroy
-      flash[:success] = "投稿を削除しました"
-      redirect_back(fallback_location: "scotish_post/index")
-    end
+    @scotish_post = ScotishPost.find(params[:id])
+    @scotish_post.destroy
+    flash[:success] = "投稿を削除しました"
+    redirect_back(fallback_location: "scotish_post/index")
   end
 
   private
@@ -47,5 +46,10 @@ class ScotishPostsController < ApplicationController
       flash.now[:danger] = "ログインして下さい"
       redirect_to login_url
     end
+  end
+
+  def correct_user
+    @user = User.find(params[:id])
+    redirect_to(root_url) unless current_user?(@user)
   end
 end

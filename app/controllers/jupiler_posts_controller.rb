@@ -1,8 +1,9 @@
 class JupilerPostsController < ApplicationController
   before_action :logged_in_user
+  before_action :correct_user, only: [:destroy]
   # 投稿一覧
   def index
-    @jupiler_posts = JupilerPost.paginate(page: params[:page])
+    @jupiler_posts = JupilerPost.paginate(page: params[:page]).order(created_at: :desc)
   end
 
   #投稿作成画面
@@ -26,6 +27,13 @@ class JupilerPostsController < ApplicationController
     end
   end
 
+  def destroy
+    @jupiler_post = JupilerPost.find(params[:id])
+    @jupiler_post.destroy
+    flash[:success] = "投稿を削除しました"
+    redirect_back(fallback_location: "jupiler_post/index")
+  end
+
   private
 
   def post_params
@@ -38,5 +46,10 @@ class JupilerPostsController < ApplicationController
       flash.now[:danger] = "ログインして下さい"
       redirect_to login_url
     end
+  end
+
+  def correct_user
+    @user = User.find(params[:id])
+    redirect_to(root_url) unless current_user?(@user)
   end
 end

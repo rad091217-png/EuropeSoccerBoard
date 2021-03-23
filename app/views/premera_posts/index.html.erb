@@ -17,7 +17,7 @@
         <div class="image">
             <section class="image"><%= image_tag premera_post.image.url if premera_post.image? %></section>
             <div class="post_destroy">
-            <%= link_to("投稿削除", "/premera_posts/#{premera_post.id}/destroy", {method: :delete} ) %>
+            <%= link_to("投稿削除", premera_post_path(premera_post), {method: :delete} ) %>
             </div>
             <p class="user_name">ユーザー名 <%= link_to(premera_post.user.name, user_path(premera_post.user_id)) %></p>
             <% end %>

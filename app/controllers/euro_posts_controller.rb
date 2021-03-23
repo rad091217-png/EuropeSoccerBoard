@@ -1,8 +1,9 @@
 class EuroPostsController < ApplicationController
   before_action :logged_in_user
+  before_action :correct_user, only: [:destroy]
   # 投稿一覧
   def index
-    @euro_posts = EuroPost.paginate(page: params[:page])
+    @euro_posts = EuroPost.paginate(page: params[:page]).order(created_at: :desc)
   end
 
   #投稿作成画面
@@ -27,12 +28,10 @@ class EuroPostsController < ApplicationController
   end
 
   def destroy
-    @euro_posts = EuroPost.paginate(page: params[:page]).order(created_at: :desc)
-    if @euro_posts.user_id == current_user.id
-      @euro_posts.destroy
-      flash[:success] = "投稿を削除しました"
-      redirect_back(fallback_location: "euro_post/index")
-    end
+    @euro_post = EuroPost.find(params[:id])
+    @euro_post.destroy
+    flash[:success] = "投稿を削除しました"
+    redirect_back(fallback_location: "euro_post/index")
   end
 
   private
@@ -47,5 +46,10 @@ class EuroPostsController < ApplicationController
       flash.now[:danger] = "ログインして下さい"
       redirect_to login_url
     end
+  end
+
+  def correct_user
+    @user = User.find(params[:id])
+    redirect_to(root_url) unless current_user?(@user)
   end
 end

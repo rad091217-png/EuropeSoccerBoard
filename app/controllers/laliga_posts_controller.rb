@@ -1,8 +1,9 @@
 class LaligaPostsController < ApplicationController
   before_action :logged_in_user
+  before_action :correct_user, only: [:destroy]
   # 投稿一覧
   def index
-    @laliga_posts = LaligaPost.paginate(page: params[:page])
+    @laliga_posts = LaligaPost.paginate(page: params[:page]).order(created_at: :desc)
   end
 
   #投稿作成画面
@@ -27,12 +28,10 @@ class LaligaPostsController < ApplicationController
   end
 
   def destroy
-    @laliga_posts = LaligaPost.paginate(page: params[:page]).order(created_at: :desc)
-    if @laliga_posts.user_id == current_user.id
-      @laliga_posts.destroy
-      flash[:success] = "投稿を削除しました"
-      redirect_back(fallback_location: "laliga_post/index")
-    end
+    @laliga_post = LaligaPost.find(params[:id])
+    @laliga_post.destroy
+    flash[:success] = "投稿を削除しました"
+    redirect_back(fallback_location: "laliga_post_path(laliga_post)")
   end
 
   private
@@ -47,5 +46,10 @@ class LaligaPostsController < ApplicationController
       flash.now[:danger] = "ログインして下さい"
       redirect_to login_url
     end
+  end
+
+  def correct_user
+    @user = User.find(params[:id])
+    redirect_to(root_url) unless current_user?(@user)
   end
 end

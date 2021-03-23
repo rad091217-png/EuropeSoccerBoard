@@ -14,19 +14,19 @@ Rails.application.routes.draw do
       get :following, :followers
     end
   end
-  resources :laliga_posts
-  resources :bundesu_posts
-  resources :premier_posts
-  resources :serie_posts
-  resources :league_one_posts
-  resources :eredivisie_posts
-  resources :jupiler_posts
-  resources :premera_posts
-  resources :scotish_posts
-  resources :euro_posts
-  resources :nations_posts
-  resources :champions_posts
-  resources :europe_posts
+  resources :laliga_posts, only: [:index, :create, :new, :destroy, :update, :edit]
+  resources :bundesu_posts, only: [:index, :create, :new, :destroy, :update, :edit]
+  resources :premier_posts, only: [:index, :create, :new, :destroy, :update, :edit]
+  resources :serie_posts, only: [:index, :create, :new, :destroy, :update, :edit]
+  resources :league_one_posts, only: [:index, :create, :new, :destroy, :update, :edit]
+  resources :eredivisie_posts, only: [:index, :create, :new, :destroy, :update, :edit]
+  resources :jupiler_posts, only: [:index, :create, :new, :destroy, :update, :edit]
+  resources :premera_posts, only: [:index, :create, :new, :destroy, :update, :edit]
+  resources :scotish_posts, only: [:index, :create, :new, :destroy, :update, :edit]
+  resources :euro_posts, only: [:index, :create, :new, :destroy, :update, :edit]
+  resources :nations_posts, only: [:index, :create, :new, :destroy, :update, :edit]
+  resources :champions_posts, only: [:index, :create, :new, :destroy, :update, :edit]
+  resources :europe_posts, only: [:index, :create, :new, :destroy, :update, :edit]
   resources :users
   resources :account_activations, only: [:edit]
   resources :relationships, only: [:create, :destroy]
