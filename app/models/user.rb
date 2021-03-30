@@ -25,6 +25,7 @@ class User < ApplicationRecord
   has_many :messages, dependent: :destroy
   has_many :entries, dependent: :destroy
   attr_accessor :remember_token, :activation_token, :avatar_cache
+  mount_uploader :avatar, ImageUploader
   before_save { self.email = email.downcase }
   validates :name, presence: true, length: { maximum: 50 }
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
@@ -106,7 +107,7 @@ class User < ApplicationRecord
     if id == current_user.id
       true
     else
-      redirect_back(fallback_location: root_path)
+      # do nothing
     end
   end
 

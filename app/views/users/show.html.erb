@@ -1,10 +1,17 @@
 <%= stylesheet_link_tag "users_show", media: 'all', 'data-turbolinks-track': 'reload' %>
+<div class="profile">
+<section class="avatar">
+    <%= image_tag @user.avatar.url if @user.avatar? %>
+</section>
 <h1 class="user_name">
-    <%= image_tag current_user.avatar.url, class: "rounded-circle mr15" %>
     <%= @user.name %>
 </h1>
 <section class="introduction">
+<p class="introduction">自己紹介</p>
+<% if @user.correct_user(current_user) %>
     <%= current_user.introduction %>
+    <% else %>
+    <% end %>
 </section>
 <% if @user.correct_user(current_user) %>
 <p class="edit_profile"><%=link_to "プロフィール設定", edit_profile_path %></p>
@@ -31,4 +38,5 @@
     <% end %>
     <% end %>
     <% end %>
+</div>
 </div>
