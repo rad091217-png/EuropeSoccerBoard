@@ -11,5 +11,4 @@ ja:
         name: 名前
         email: メールアドレス
         password: パスワード
-        password_confirmation: 入力したパスワードの確認
         　
