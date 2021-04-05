@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_02_064633) do
+ActiveRecord::Schema.define(version: 2021_04_05_060608) do
 
   create_table "bundesu_posts", force: :cascade do |t|
     t.string "title"
@@ -87,7 +87,6 @@ ActiveRecord::Schema.define(version: 2021_04_02_064633) do
     t.datetime "created_at", precision: 6
     t.datetime "updated_at", precision: 6
     t.integer "user_id"
-    t.integer "likes"
   end
 
   create_table "league_one_posts", force: :cascade do |t|
