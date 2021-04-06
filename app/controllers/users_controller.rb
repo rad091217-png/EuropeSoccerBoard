@@ -5,6 +5,11 @@ class UsersController < ApplicationController
 
   def index
     @users = User.paginate(page: params[:page])
+    logger.debug("[debug] users#index")
+    logger.info("[info] users#index")
+    logger.warn("[warn] users#index")
+    logger.error("[error] users#index")
+    logger.fatal("[fatal] users#index")
   end
 
   def signup
