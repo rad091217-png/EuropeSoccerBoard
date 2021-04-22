@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_05_060608) do
+ActiveRecord::Schema.define(version: 2021_03_18_073745) do
 
   create_table "bundesu_posts", force: :cascade do |t|
     t.string "title"
@@ -38,10 +38,12 @@ ActiveRecord::Schema.define(version: 2021_04_05_060608) do
   end
 
   create_table "entries", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "room_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "user_id"
-    t.integer "room_id"
+    t.index ["room_id"], name: "index_entries_on_room_id"
+    t.index ["user_id"], name: "index_entries_on_user_id"
   end
 
   create_table "eredivisie_posts", force: :cascade do |t|
@@ -99,11 +101,22 @@ ActiveRecord::Schema.define(version: 2021_04_05_060608) do
   end
 
   create_table "messages", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "room_id", null: false
     t.text "content"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "user_id"
-    t.integer "room_id"
+    t.index ["room_id"], name: "index_messages_on_room_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
+  end
+
+  create_table "microposts", force: :cascade do |t|
+    t.text "content"
+    t.integer "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id", "created_at"], name: "index_microposts_on_user_id_and_created_at"
+    t.index ["user_id"], name: "index_microposts_on_user_id"
   end
 
   create_table "nations_posts", force: :cascade do |t|
@@ -113,6 +126,14 @@ ActiveRecord::Schema.define(version: 2021_04_05_060608) do
     t.integer "user_id"
     t.datetime "created_at", precision: 6
     t.datetime "updated_at", precision: 6
+  end
+
+  create_table "posts", force: :cascade do |t|
+    t.string "name"
+    t.text "text"
+    t.string "image"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "premera_posts", force: :cascade do |t|
@@ -176,6 +197,8 @@ ActiveRecord::Schema.define(version: 2021_04_05_060608) do
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "email"
+    t.string "token"
+    t.datetime "expired_at", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "password_digest"
@@ -184,11 +207,14 @@ ActiveRecord::Schema.define(version: 2021_04_05_060608) do
     t.string "activation_digest"
     t.boolean "activated", default: false
     t.datetime "activated_at"
-    t.integer "user_id"
     t.string "introduction"
-    t.string "avatar_cache"
-    t.string "avatar"
     t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["token"], name: "index_temp_users_on_token", unique: true
   end
 
+  add_foreign_key "entries", "rooms"
+  add_foreign_key "entries", "users"
+  add_foreign_key "messages", "rooms"
+  add_foreign_key "messages", "users"
+  add_foreign_key "microposts", "users"
 end
