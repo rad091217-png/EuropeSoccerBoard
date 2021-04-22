@@ -70,7 +70,7 @@ class User < ApplicationRecord
     user.password = params[:password]
     user.password_confirmation = params[:password_confirmation]
     user.token = create_token
-    user.expired_at = DateTime.now + 1
+    user.expired_at = Time.now + 1 * 60 * 60 * 24
     return user
   end
 
