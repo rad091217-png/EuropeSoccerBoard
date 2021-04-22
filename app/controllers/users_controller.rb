@@ -21,7 +21,7 @@ class UsersController < ApplicationController
     @laliga_posts = LaligaPost.paginate(page: params[:page])
     @currentUserEntry = Entry.where(user_id: current_user.id)
     @userEntry = Entry.where(user_id: @user.id)
-    if @user.id == current_user.id
+    if @user.id == current_user.id && @user.activated === true
     else
       @currentUserEntry.each do |cu|
         @userEntry.each do |u|
@@ -40,11 +40,10 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(user_params)
+    @user = User.new
+    @user = @user.create_temp_user(user_params)
     if @user.save
-      @user.send_activation_email
-      UserMailer.account_activation(@user).deliver_now
-      flash.now[:info] = "あなたのメールアドレスが有効か確かめて下さい"
+      UserMailer.account_activation(@user).deliver_later
       redirect_to root_url
     else
       render "signup"
@@ -88,8 +87,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :email, :password,
-                                 :password_confirmation)
+    params.require(:user).permit(:name, :email, :password, :password_confirmation)
   end
 
   def logged_in_user
@@ -108,4 +106,5 @@ class UsersController < ApplicationController
   def admin_user
     redirect_to(root_url) unless current_user.admin?
   end
+
 end
