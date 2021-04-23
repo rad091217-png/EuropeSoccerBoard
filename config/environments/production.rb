@@ -112,7 +112,7 @@ Rails.application.configure do
   # config.active_record.database_resolver_context = ActiveRecord::Middleware::DatabaseSelector::Resolver::Session
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :smtp
-  host = "<your heroku app>.herokuapp.com"
+  host = "protected-everglades-48656.herokuapp.com/"
   config.action_mailer.default_url_options = { host: host }
   ActionMailer::Base.smtp_settings = {
     :port => ENV["MAILGUN_SMTP_PORT"],
