@@ -4,7 +4,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby "2.7.2"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem "rails", "~> 6.0.3", ">= 6.0.3.4"
+gem "rails", "~> 6.0.3.4"
 # Use Puma as the app server
 gem "puma", "~> 4.1"
 # Use SCSS for stylesheets
@@ -21,7 +21,7 @@ gem "rails-i18n"
 gem "font-awesome-sass"
 gem "will_paginate", "3.1.8"
 gem "bootstrap-will_paginate", "1.0.0"
-gem "carrierwave", "~> 1.3", ">= 1.3.1"
+gem "carrierwave"
 gem "rmagick"
 gem "pry-rails"
 gem "jquery-rails"
@@ -40,10 +40,8 @@ end
 
 group :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
-  gem "web-console", ">= 3.3.0"
+  gem "web-console"
   gem "faker", "2.1.2"
-  gem "letter_opener"
-  gem "letter_opener_web"
 end
 
 group :test do
