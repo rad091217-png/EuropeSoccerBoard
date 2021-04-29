@@ -64,16 +64,6 @@ class User < ApplicationRecord
     update_attribute(:remember_digest, nil)
   end
 
-  def create_temp_user(params)
-    user = User.find_or_initialize_by(email: params[:email])
-    user.name = params[:name]
-    user.password = params[:password]
-    user.password_confirmation = params[:password_confirmation]
-    user.token = create_token
-    user.expired_at = Time.now + 1 * 60 * 60 * 24
-    return user
-  end
-
   # アカウントを有効にする
   def activate
     update_attribute(:activated, true)
@@ -132,14 +122,5 @@ class User < ApplicationRecord
   def create_activation_digest
     self.activation_token = User.new_token
     self.activation_digest = User.digest(activation_token)
-  end
-
-  def create_token
-    token = nil
-    loop do
-      token = SecureRandom.urlsafe_base64
-        break if User.find_by(token: token).nil?
-    end
-    return token
   end
 end
