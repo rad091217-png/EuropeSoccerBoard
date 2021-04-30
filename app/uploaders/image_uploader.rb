@@ -14,6 +14,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   end
 
   #リサイズ、画像形式を変更に必要
+  include CarrierWave::MiniMagick
 
   #上限変更
   process :resize_to_limit => [700, 700]
