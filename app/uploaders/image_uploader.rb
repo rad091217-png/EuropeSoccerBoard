@@ -17,14 +17,14 @@ class ImageUploader < CarrierWave::Uploader::Base
   include CarrierWave::MiniMagick
 
   #上限変更
-  process :resize_to_fit => [700, 700]
+  process :resize_to_limit => [700, 700]
 
   #JPGで保存
   process :convert => "jpg"
 
   #サムネイルを生成
   version :thumb do
-    process :resize_to_fit => [300, 300]
+    process :resize_to_limit => [300, 300]
   end
 
   #ファイル名を変更し拡張子を同じにする

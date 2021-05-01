@@ -11,7 +11,6 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema.define(version: 2021_04_05_060608) do
-
   create_table "bundesu_posts", force: :cascade do |t|
     t.string "title"
     t.text "text"
@@ -190,5 +189,4 @@ ActiveRecord::Schema.define(version: 2021_04_05_060608) do
     t.string "avatar"
     t.index ["email"], name: "index_users_on_email", unique: true
   end
-
 end
